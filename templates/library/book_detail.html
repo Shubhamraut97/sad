@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.name }} - Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    {% include "library/navbarstudent.html" %}
+
+    <div class="container mt-5">
+        <h1>{{ book.name }}</h1>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <p><strong>Category:</strong> {{ book.category }}</p>
+
+        <h3>Reviews</h3>
+        {% if reviews %}
+            <ul class="list-group mb-4">
+                {% for review in reviews %}
+                    <li class="list-group-item">
+                        <strong>{{ review.user.username }}</strong> rated it {{ review.rating }} stars
+                        <p>{{ review.review_text }}</p>
+                        <small>Reviewed on {{ review.created_at }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No reviews yet. Be the first to review this book!</p>
+        {% endif %}
+
+        <h3>Submit a Review</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+
+    {% include "library/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style media="screen">
+      /* Modern Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Roboto', 'Segoe UI', sans-serif;
+        background-color: #f8fafd;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      /* Jumbotron */
+      .jumbotron {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #4f8fcb 0%, #3b6ca5 100%);
+        color: white;
+        border-radius: 16px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .jumbotron:hover {
+        transform: translateY(-4px);
+      }
+
+      .jumbotron h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .jumbotron p.lead {
+        font-size: 1.25rem;
+        max-width: 800px;
+        margin: 0 auto 2.5rem;
+        opacity: 0.95;
+      }
+
+      .jumbotron hr {
+        border-color: rgba(255, 255, 255, 0.2);
+        margin: 2rem auto;
+        width: 60px;
+      }
+
+      /* Options Grid */
+      .options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      .options a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        color: #2d3748;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .options a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        background: white;
+        color: #2a5f92;
+      }
+
+      .options a i {
+        font-size: 1.4rem;
+        color: #3e87c7;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .jumbotron {
+          margin: 1rem;
+          padding: 3rem 1.5rem;
+        }
+
+        .jumbotron h1 {
+          font-size: 2.2rem;
+        }
+
+        .jumbotron p.lead {
+          font-size: 1.1rem;
+        }
+
+        .options {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .jumbotron {
+          padding: 2rem 1rem;
+          border-radius: 8px;
+        }
+
+        .jumbotron h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% include "library/navbaradmin.html" %}
+
+    <div class="jumbotron">
+      <h1>Welcome back, {{ user.first_name }}! 👋</h1>
+      <p class="lead">As an administrator, you have full access to manage the library collection, track issued books, and oversee student records.</p>
+      <hr>
+      <div class="options">
+        <a href="addbook">
+          <i class="fas fa-plus-circle"></i>
+          Add New Book
+        </a>
+        <a href="viewbook">
+          <i class="fas fa-book-open"></i>
+          View Books
+        </a>
+        <a href="issuebook">
+          <i class="fas fa-hand-holding"></i>
+          Issue Book
+        </a>
+        <a href="viewissuedbook">
+          <i class="fas fa-clipboard-list"></i>
+          Issued Books
+        </a>
+        <a href="viewstudent">
+          <i class="fas fa-users"></i>
+          View Students
+        </a>
+      </div>
+    </div>
+
+    {% include "library/footer.html" %}
+  </body>
+</html>

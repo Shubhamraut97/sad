@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #f4f7fb;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Flexbox to center content */
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 20px;
+    }
+
+    .jumbotron {
+      background-color: #a3c8f7; /* Lighter shade of blue */
+      color: white;
+      padding: 50px 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .jumbotron:hover {
+      transform: translateY(-5px);
+    }
+
+    .jumbotron h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+
+    .jumbotron p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .jumbotron .btn {
+      font-size: 1.2rem;
+      padding: 12px 40px;
+      border-radius: 25px;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .jumbotron .btn-primary {
+      background-color: #56a9e0; /* Lighter blue for the button */
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .jumbotron .btn-primary:hover {
+      background-color: #3e87c7; /* Darker shade of light blue */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .jumbotron .btn-lg {
+      margin: 10px;
+    }
+
+    .jumbotron hr {
+      border-top: 2px solid #ffffff;
+      margin: 20px 0;
+      width: 80%;
+      margin-left: 10%;
+    }
+
+    .footer {
+      background-color: #56a9e0; /* Match footer color with buttons */
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .footer a {
+      color: #f4f7fb; /* Lighter color for footer links */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+      .jumbotron h1 {
+        font-size: 2.5rem;
+      }
+
+      .jumbotron p {
+        font-size: 1rem;
+      }
+
+      .jumbotron .btn {
+        font-size: 1rem;
+        padding: 10px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  {% include "library/navbar.html" %}
+
+  <div class="content-wrapper">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello</h1>
+      <p class="lead">Welcome to the Online Library Management System.</p>
+      <hr class="my-4">
+      <p>You can access various features after Login/SignUp.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="adminsignup" role="button">Sign Up</a>
+        <a class="btn btn-primary btn-lg" href="adminlogin" role="button">Login</a>
+      </p>
+    </div>
+  </div>
+
+  {% include "library/footer.html" %}
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reservations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        table.redTable {
+            border: 2px solid #607d8b;
+            background-color: #EEE7DB;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table.redTable td, table.redTable th {
+            border: 1px solid #AAAAAA;
+            padding: 3px 2px;
+        }
+        table.redTable tbody td {
+            font-size: 13px;
+        }
+        table.redTable tr:nth-child(even) {
+            background: #ffffff;
+        }
+        table.redTable thead {
+            background: #607d8b;
+        }
+        table.redTable thead th {
+            font-size: 19px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            border-left: 2px solid #607d8b;
+        }
+        table.redTable thead th:first-child {
+            border-left: none;
+        }
+        .center-message {
+            text-align: center;
+            font-size: 24px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include "library/navbarstudent.html" %}
+
+    <div class="container mt-5">
+        <h3 class="p-3 mb-4 bg-primary text-white text-center" style="font-size: 30px;">My Reservations</h3>
+
+        {% if reservations %}
+        <table class="redTable">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Reservation Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.book.name }}</td>
+                    <td>{{ reservation.book.author }}</td>
+                    <td>{{ reservation.reservation_date|date:"d-m-Y H:i" }}</td>
+                    <td>{% if reservation.is_active %}Active{% else %}Completed{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="center-message">You have no reservations</div>
+        {% endif %}
+    </div>
+
+    {% include "library/footer.html" %}
+</body>
+</html>
