@@ -7,6 +7,7 @@
   <body>
     <form class=""  method="post">
       {{form.as_p}}
+      <!-- csrf token - to ditinguish between bot and real -->
       {% csrf_token %}
       <button type="submit" name="button">LOGIN</button>
     </form>
